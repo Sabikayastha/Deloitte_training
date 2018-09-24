@@ -1,0 +1,79 @@
+Create a table called Employee with the following Columns  and perform the following operations:-
+------------------------------------------------------------------------------------------------------------
+
+EmployeeID
+EmployeeName
+EmployeeAddress
+DOB
+DOJ
+Salary
+
+
+ANS:: 	CREATE TABLE EMPLOYEE
+	(
+	EMPLOYEEID NUMBER(10),
+	EMPLOYEENAME VARCHAR(20),
+	EMPLOYEEADDRESS VARCHAR(30),
+	DOB DATE,
+	DOJ DATE,
+	SALARY FLOAT(10)
+	);
+
+
+a.) Insert five records
+	
+ANS::	
+	 INSERT INTO EMPLOYEE VALUES
+	(
+		1,'SARADA','KAKINADA',TO_DATE('1995/12/19','YYYY/MM/DD'),TO_DATE('2018/09/05','YYYY/MM/DD'),25000
+	);
+	INSERT INTO EMPLOYEE VALUES
+	(
+		2,'ARUN','SURYA',TO_DATE('1990/04/20','YYYY/MM/DD'),TO_DATE('2018/07/15','YYYY/MM/DD'),40000
+	);
+	INSERT INTO EMPLOYEE VALUES
+	(
+		3,'SHARUN','SURYADEEP',TO_DATE('1980/07/22','YYYY/MM/DD'),TO_DATE('2014/07/14','YYYY/MM/DD'),45000
+	);
+	INSERT INTO EMPLOYEE VALUES
+	(
+		4,'SITARA','MIYAPUR',TO_DATE('1986/07/21','YYYY/MM/DD'),TO_DATE('2016/08/10','YYYY/MM/DD'),43000
+	);
+	INSERT INTO EMPLOYEE VALUES
+	(
+		5,'SITARAM','HYDERABAD',TO_DATE('1988/08/28','YYYY/MM/DD'),TO_DATE('2015/05/25','YYYY/MM/DD'),34000
+	);
+	
+	
+	
+
+b) Retrieve all the records
+ANS::
+	SELECT * FROM EMPLOYEE;
+
+
+c) Retrieve the Employee name whose salary is greater than 20000
+ANS::
+	SELECT EMPLOYEENAME FROM EMPLOYEE WHERE SALARY>20000;
+
+d) Retrieve the Employee name whose address contains 'a' or 'p' or 'r'  as the last character
+ANS::
+	SELECT EMPLOYEENAME FROM EMPLOYEE WHERE EMPLOYEEADDRESS LIKE ('%A') OR ADDRESS LIKE ('%P') OR ADDRESS LIKE('%R');
+	
+e) Increase the Salary of all the Employee by 20%
+ANS::
+	UPDATE EMPLOYEE SET SALARY=SALARY+(0.2*SALARY);
+
+f) Delete all the employee records whose salary is less than 5000
+ANS::
+	DELETE FROM EMPLOYEE WHERE SALARY<5000; 
+
+g) Add another column Email and update the contents.
+ANS::
+	ALTER TABLE EMPLOYEE ADD (EMAIL VARCHAR(20));
+
+	UPDATE EMPLOYEE SET EMAIL='SARADA@YAHOO.COM' WHERE EMPLOYEEID=1;
+	UPDATE EMPLOYEE SET EMAIL='ARUN@YAHOO.COM' WHERE EMPLOYEEID=2;
+	UPDATE EMPLOYEE SET EMAIL='SHARUN@GMAIL.COM' WHERE EMPLOYEEID=3;
+	UPDATE EMPLOYEE SET EMAIL='SITARA@OUTLOOK.COM' WHERE EMPLOYEEID=4;
+	UPDATE EMPLOYEE SET EMAIL='SITARAM@MSN.COM' WHERE EMPLOYEEID=5;
